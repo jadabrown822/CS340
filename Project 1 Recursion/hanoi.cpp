@@ -1,8 +1,10 @@
 #include <iostream>
 #include <iomanip>
-#include <random>
 #include <cstdlib>
+#include <chrono>
 using namespace std;
+
+
 
 
 int main() {
@@ -12,5 +14,7 @@ int main() {
 
     for(int i=3; i<=35; i++){
         n = i;
+
+
     }
 }
