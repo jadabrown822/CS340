@@ -5,19 +5,19 @@
 using namespace std;
 
 
-int tower(int diskNum, char sourcePeg, char targetPeg, char tempPeg);
+void tower(int diskNum, char sourcePeg, char targetPeg, char tempPeg, long long& numSteps);
 
 int main() {
     int n = 0;
 
 
     for(int i=3; i<=35; ++i) {
-        int stepCount = 0;
+        long long stepCount = 0;
 
 
         auto start_time = chrono::high_resolution_clock::now();
 
-        stepCount = tower(i, 'A', 'C', 'B');
+        tower(i, 'A', 'C', 'B', stepCount);
 
         auto end_time = chrono::high_resolution_clock::now();
 
@@ -25,9 +25,23 @@ int main() {
 
         long long milliseconds = chrono::duration_cast<chrono::milliseconds>(duration).count();
 
-        cout << "N = " << n << endl;
+        cout << "N = " << i << endl;
         cout << "That took " << stepCount << " steps." << endl;
         cout << milliseconds << " milliseconds." << endl;
 
+    }
+}
+
+
+void tower(int diskNum, char sourcePeg, char targetPeg, char tempPeg, long long& numSteps) {
+    if (diskNum == 1) {
+        ++numSteps;
+        return;
+    }
+
+    else {
+        tower(diskNum - 1, sourcePeg, tempPeg, targetPeg, numSteps);
+        ++numSteps;
+        tower(diskNum - 1, tempPeg, targetPeg, sourcePeg, numSteps);
     }
 }
