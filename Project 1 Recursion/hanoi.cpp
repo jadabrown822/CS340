@@ -8,8 +8,6 @@ using namespace std;
 void tower(int diskNum, char sourcePeg, char targetPeg, char tempPeg, long long& numSteps);
 
 int main() {
-    int n = 0;
-
 
     for(int i=3; i<=35; ++i) {
         long long stepCount = 0;
