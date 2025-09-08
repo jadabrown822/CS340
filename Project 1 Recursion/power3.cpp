@@ -5,8 +5,8 @@
 
 using namespace std;
 
-int RM4(int a, int n);
-int RM6(int a, int n);
+long long RM4(int a, int n);
+long long RM6(int a, int n);
 
 int main() {
 
@@ -46,17 +46,17 @@ int main() {
 }
 
 
-int RM4(int a, int n) {
+long long RM4(int a, int n) {
     if (n == 0) {
         return 1;
     }
     else {
-        return a * RM4(a, n - 1);
+        return static_cast<long long>(a) * RM4(a, n-1);
     }
 }
 
 
-int RM6(int a, int n) {
+long long RM6(int a, int n) {
     if (n == 0) {
         return 1;
     }
@@ -64,6 +64,6 @@ int RM6(int a, int n) {
         return pow(RM6(a, n/2), 2);
     }
     else {
-        return a * pow(RM6(a, n/2), 2);
+        return static_cast<long long>(a) * pow(RM6(a, n/2), 2);
     }
 }
