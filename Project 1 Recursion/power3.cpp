@@ -5,6 +5,9 @@
 
 using namespace std;
 
+int RM4(int base, int power);
+int RM6(int base, int power);
+
 int main() {
 
     for(int i=3; i<=35; ++i) {
