@@ -9,16 +9,19 @@
 
 using namespace std;
 
-// random array
-// sort array
+void randArray(int a[20], int n);
+void sortArray(int a[20], int n);
 // Brute force
 // Greedy
 
 
-// int main
+int main() {
+	const int size = 20;
+    int myArray[20];
 
-    // random array
-    // sort array
+    randArray(myArray, size);
+
+    sortArray(myArray, size);
 
     // time start
 
@@ -44,14 +47,48 @@ using namespace std;
     // cout << greedyTime << endl;
 
     
-    // return 0;
+    return 0;
+}
 
 
+void randArray(int a[20], int n){
+    srand(time(0));
 
-// random array
+    for (int i = 0; i < n; ++i) {
+        a[i] = rand() % 150 + 1;
+    }
+
+    cout << "Random Array: [ ";
+
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << " ";
+    }
+
+    cout << " ]" << endl;
+}
 
 
-// sort array
+void sortArray(int a[20], int n){
+    int temp;
+
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-1-i; j++) {
+            if (a[j] < a[j+1]) {
+                temp = a[j+1];
+                a[j+1] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+
+        cout << "Sorted Array: [ ";
+
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << " ";
+    }
+
+    cout << " ]" << endl;
+}
 
 
 // brute force
