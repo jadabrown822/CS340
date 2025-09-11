@@ -11,7 +11,7 @@ using namespace std;
 
 void randArray(int a[20], int n);
 void sortArray(int a[20], int n);
-// Brute force
+int bruteForce(int a[20]);
 // Greedy
 
 
@@ -23,16 +23,18 @@ int main() {
 
     sortArray(myArray, size);
 
-    // time start
+    auto start_time = chrono::high_resolution_clock::now();
 
-    // int brute force
+    int bfAnswer = bruteForce(myArray);
 
-    // time end
+    auto end_time = chrono::high_resolution_clock::now();
 
-    // duration
+    auto duration = end_time - start_time;
 
-    // cout << bfAnswer << endl;
-    // cout << bfTime << endl;
+    long long bfTime = chrono::duration_cast<chrono::nanoseconds>(duration).count();
+
+    cout << "Brute Force Answer: " << bfAnswer << endl;
+    cout << "Brute Force Time: " << bfTime << " nanoseconds." << endl;
 
 
     // time start
@@ -91,7 +93,21 @@ void sortArray(int a[20], int n){
 }
 
 
-// brute force
+int bruteForce(int a[20]) {
+    int max = 1000;
+    int total = 0;
+    int i = 0;
+
+    while (total <= max) {
+        total = total + a[i];
+        i++;
+    }
+
+    i--;
+    total = total - a[i];
+
+    return total;
+}
 
 
 // greedy
