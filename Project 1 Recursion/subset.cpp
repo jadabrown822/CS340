@@ -12,7 +12,7 @@ using namespace std;
 void randArray(int a[20], int n);
 void sortArray(int a[20], int n);
 int bruteForce(int a[20]);
-// Greedy
+int greedy(int a[20], int n);
 
 
 int main() {
@@ -23,30 +23,32 @@ int main() {
 
     sortArray(myArray, size);
 
-    auto start_time = chrono::high_resolution_clock::now();
+    auto bfStart = chrono::high_resolution_clock::now();
 
     int bfAnswer = bruteForce(myArray);
 
-    auto end_time = chrono::high_resolution_clock::now();
+    auto bfEnd = chrono::high_resolution_clock::now();
 
-    auto duration = end_time - start_time;
+    auto bfDuration = bfEnd - bfStart;
 
-    long long bfTime = chrono::duration_cast<chrono::nanoseconds>(duration).count();
+    long long bfTime = chrono::duration_cast<chrono::nanoseconds>(bfDuration).count();
 
     cout << "Brute Force Answer: " << bfAnswer << endl;
     cout << "Brute Force Time: " << bfTime << " nanoseconds." << endl;
 
 
-    // time start
+    auto greedyStart = chrono::high_resolution_clock::now();
 
-    // int greedy
+    int greedyAnswer = greedy(myArray, size);
 
-    // time end
+    auto greedyEnd = chrono::high_resolution_clock::now();
 
-    // duration
+    auto greedyDuration = greedyEnd - greedyStart;
 
-    // cout << greedyAnswer << endl;
-    // cout << greedyTime << endl;
+    long long greedyTime = chrono::duration_cast<chrono::nanoseconds>(greedyDuration).count();
+
+    cout << "Greedy Algorithm Answer: " << greedyAnswer << endl;
+    cout << "Greedy Algorithm Time: " << greedyTime << " nanoseconds." << endl;
 
     
     return 0;
@@ -110,4 +112,20 @@ int bruteForce(int a[20]) {
 }
 
 
-// greedy
+int greedy(int a[20], int n) {
+    int max = 1000;
+    int total = 0;
+
+    for (int i = 0; i < n; i++) {
+        total = total + a[i];
+
+        if (total > max) {
+            total  = total - a[i];
+        }
+        if (total == max) {
+            return total;
+        }
+    }
+
+    return total;
+}
