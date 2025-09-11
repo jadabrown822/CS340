@@ -11,8 +11,8 @@ using namespace std;
 
 void randArray(int a[20], int n);
 void sortArray(int a[20], int n);
-int bruteForce(int a[20]);
-int greedy(int a[20], int n);
+int greedy(int a[20]);
+int bruteForce(int a[20], int n);
 
 
 int main() {
@@ -25,7 +25,7 @@ int main() {
 
     auto bfStart = chrono::high_resolution_clock::now();
 
-    int bfAnswer = bruteForce(myArray);
+    int bfAnswer = bruteForce(myArray, size);
 
     auto bfEnd = chrono::high_resolution_clock::now();
 
@@ -39,7 +39,7 @@ int main() {
 
     auto greedyStart = chrono::high_resolution_clock::now();
 
-    int greedyAnswer = greedy(myArray, size);
+    int greedyAnswer = greedy(myArray);
 
     auto greedyEnd = chrono::high_resolution_clock::now();
 
@@ -95,7 +95,7 @@ void sortArray(int a[20], int n){
 }
 
 
-int bruteForce(int a[20]) {
+int greedy(int a[20]) {
     int max = 1000;
     int total = 0;
     int i = 0;
@@ -112,7 +112,7 @@ int bruteForce(int a[20]) {
 }
 
 
-int greedy(int a[20], int n) {
+int bruteForce(int a[20], int n) {
     int max = 1000;
     int total = 0;
 
