@@ -21,3 +21,8 @@ Had to look up why there were spikes in the RM6 function, found out some causes 
 
 ## Subset Sum (75 points)
 ![Subset Sum](images/subset.png)
+
+The approximation algorithm did pretty well, it was able to get within 10% of the exact algorithm, with one iteration matching.
+On average there was a 96.7% accuracy between the exact algorithm and the approximation algorithm.
+The approximation algorithm was quicker than the exact algorithm, on average the time for the approximation algorithm to finish is about half of the exact algorithm.
+The approximation algorithm is worth using, since it was able to get very clode to the exact algorithm, but only if the quickest route is need. But not the best if accuracy is needed, though during these iterations were close to each other, it mainly depends on the numbers given.
