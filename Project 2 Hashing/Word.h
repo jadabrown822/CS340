@@ -7,21 +7,21 @@ using namespace std;
 
 class Word {
     public:
-    string keyWord;
-    int frequency;
-    int steps;
+        string keyWord;
+        int frequency;
+        int stepCount;
 
-    Word(const string& key = "na", const int frequency = 0, const int steps = 0): keyWord(key), frequency(frequency), steps(steps) {}
+        Word(const string& keyWord = "na", const int frequency = 0, const int stepCount = 0) : keyWord{keyWord}, frequency{frequency}, stepCount{stepCount} {}
 
-    string descriptor() const {
-        ostringstream oss;
-        oss << "Word: " << keyWord
-            << ", Frequency: "
-            << frequency
-            << ", Steps: " << steps;
-        
-        return oss.str();
-    }
+        string descriptor() const {
+            ostringstream oss;
+
+            oss << "Key Word: " << keyWord << ","
+                << "Occurence: " << frequency << ", "
+                << "Steps: " << stepCount << endl;
+
+            return oss.str();
+        }
 };
 
 #endif // WORD_H

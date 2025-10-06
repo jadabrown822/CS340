@@ -5,21 +5,22 @@
 using namespace std;
 
 class Node {
-public:
-    Word* word;
-    Node* next;
-    Node(Word* w) {
-        word = new Word(*w);
-        next = nullptr;
-    }
+    public:
+        Word* hashed_key;
+        Node* next;
+        Node(Word* w) {
+            hashed_key = new Word{*w};
+            next = nullptr;
+        }
 };
+
 
 class LinkedList {
     public:
-    Node* head;
-    Node* tail;
+        Node* head;
+        Node* tail;
 
-    LinkedList() : head(nullptr), tail(nullptr) {};
+        LinkedList() : head(nullptr), tail(nullptr) {};
 };
 
 #endif // SINGLE_LINKED_LIST_H
