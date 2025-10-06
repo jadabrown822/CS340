@@ -10,6 +10,7 @@
 using namespace std;
 
 Node * listSearch(LinkedList * list, const string key);
+void listAppend(LinkedList * list, Node * newNode);
 string listDescriptor(LinkedList * list);
 
 int main() {
@@ -24,7 +25,7 @@ int main() {
         make the hash table size the mod to get items into node, or start at beginning note then double the first few nodes if too big
 
         input the LittleWomen.txt file and output it to a csv file
-        
+
     */
 }
 
@@ -39,6 +40,17 @@ Node * listSearch(LinkedList * list, const string key) {
         current = current->next;
     }
     return nullptr;
+}
+
+
+void listAppend(LinkedList * list, Node * newNode) {
+    if (list->head == nullptr) {
+        list->head = newNode;
+        list->tail = newNode;
+    } else {
+        list->tail->next = newNode;
+        list->tail = newNode;
+    }
 }
 
 
